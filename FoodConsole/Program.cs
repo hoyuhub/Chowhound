@@ -1,5 +1,8 @@
 ﻿using System;
-
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using System.IO;
+using Models;
 
 namespace FoodConsole
 {
@@ -8,8 +11,11 @@ namespace FoodConsole
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            new Address().Province().District();
-            
+             List<SCity> listCity= new Address().City(1);
+             listCity.ForEach(d=>Console.WriteLine(d.CityName));
+
         }
     }
+
+    
 }

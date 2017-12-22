@@ -2,9 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Models;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace EntityFrameWorkDal
 {
+    public class Connections
+    {
+        public string connStr { get; set; }
+    }
+
     public partial class FoodDBContext : DbContext
     {
         public virtual DbSet<SCity> SCity { get; set; }
@@ -15,10 +22,16 @@ namespace EntityFrameWorkDal
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=FoodDB;Integrated Security=True");
+                var builder = new ConfigurationBuilder()
+          .SetBasePath(Directory.GetCurrentDirectory())
+          .AddJsonFile("appsettings.json").Build();
+                var appConfig = new Connections();
+                builder.GetSection("Connections").Bind(appConfig);
+                optionsBuilder.UseSqlServer(appConfig.connStr);
             }
         }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -74,4 +87,6 @@ namespace EntityFrameWorkDal
             });
         }
     }
+
+
 }

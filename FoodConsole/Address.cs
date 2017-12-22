@@ -9,28 +9,51 @@ namespace FoodConsole
 {
     public class Address
     {
-        List<SCity> listCity = new List<SCity>();
-        List<SProvince> listProvice = new List<SProvince>();
-        List<SDistrict> listDistrict = new List<SDistrict>();
-        public Address Province()
+
+        //获取所有省份信息
+        public List<SProvince> Province()
         {
             using (var ct = new FoodDBContext())
             {
-                //[NotNullAttribute] this IQueryable<TSource> source, CancellationToken cancellationToken = default(CancellationToken)
-                listProvice = ct.SProvince.ToList();
+                return ct.SProvince.ToList();
             }
 
-            listProvice.ForEach(d => Console.WriteLine(d.ProvinceName));
-            return this;
         }
 
-        public void District()
+        //获取所有地区信息
+        public List<SDistrict> District()
         {
             using (var ct = new FoodDBContext())
             {
-                listDistrict = ct.SDistrict.ToList();
+                return ct.SDistrict.ToList();
             }
-            listDistrict.ForEach(d => Console.WriteLine(d.DistrictName));
+        }
+
+        //根据城市id 获取地区信息
+        public List<SDistrict> District(int cityId)
+        {
+            using (var ct = new FoodDBContext())
+            {
+                return ct.SDistrict.Where(d => d.CityId == cityId).ToList();
+            }
+        }
+
+        //获取所有城市信息
+        public List<SCity> City()
+        {
+            using (var ct = new FoodDBContext())
+            {
+                return ct.SCity.ToList();
+            }
+        }
+
+        //根据省份id 获取城市信息
+        public List<SCity> City(int provinceId)
+        {
+            using (var ct = new FoodDBContext())
+            {
+                return ct.SCity.Where(d => d.ProvinceId == provinceId).ToList();
+            }
         }
     }
 }
