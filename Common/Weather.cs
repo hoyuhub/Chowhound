@@ -11,19 +11,37 @@ namespace Common
         //心知天气用户ID
         private static string userId = "UD7AD56A5E";
         //心知天气接口路径
-        private static string url="https://api.seniverse.com/v3/weather/";
+        private static string s_url = "https://api.seniverse.com/v3/weather/";
         //创建静态客户端对象
         private static WebClient client = new WebClient();
-        
+
         //获取天气实况
-        public string GetNowWeather()
+        public string GetNowWeather(string cityName)
         {
-            string url = "now.json?key=tvwzmnqbgga053xr&location=beijing&language=zh-Hans";
+            string url = string.Format("{0}now.json?key={1}&location={2}&language=zh-Hans", s_url, apiKey, cityName);
+            return GetRespons(url);
+        }
+
+        //逐日天气预报和昨日天气
+        public string GetDaily(string cityName)
+        {
+            string url = string.Format("{0}weather/daily.json?key={1}$location={2}&language=zh-Hans&unit=c&start=-1&days=5", s_url, apiKey, cityName);
+            return GetRespons(url);
+        }
+
+        //获取生活指数
+        public string GetLifeSuggestion(string cityName)
+        {
+            string url = string.Format("{0}life/suggestion.json?key={1}&language=zh-Hans&location={2}", s_url, apiKey, cityName);
+            return GetRespons(url);
+        }
+
+        //根绝接口路径访问心知天气
+        public string GetRespons(string url)
+        {
             byte[] bResponse = client.DownloadData(url);
             string strResponse = Encoding.UTF8.GetString(bResponse);
             return strResponse;
         }
-
-        
     }
 }
