@@ -14,9 +14,9 @@ namespace EntityFrameWorkDal
 
     public partial class FoodDBContext : DbContext
     {
-        public virtual DbSet<SCity> SCity { get; set; }
-        public virtual DbSet<SDistrict> SDistrict { get; set; }
-        public virtual DbSet<SProvince> SProvince { get; set; }
+        public virtual DbSet<SCity> SCitys { get; set; }
+        public virtual DbSet<SDistrict> SDistricts { get; set; }
+        public virtual DbSet<SProvince> SProvinces { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
