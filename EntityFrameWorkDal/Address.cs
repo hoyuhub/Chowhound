@@ -5,7 +5,7 @@ using EntityFrameWorkDal;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace FoodConsole
+namespace EntityFrameWorkDal
 {
     public class Address
     {

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Models;
 using Microsoft.Extensions.Configuration;
+
 using System.IO;
 
 namespace EntityFrameWorkDal
@@ -22,8 +23,7 @@ namespace EntityFrameWorkDal
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var builder = new ConfigurationBuilder()
-          .SetBasePath(Directory.GetCurrentDirectory())
+                var builder =new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
           .AddJsonFile("appsettings.json").Build();
                 var appConfig = new Connections();
                 builder.GetSection("Connections").Bind(appConfig);
