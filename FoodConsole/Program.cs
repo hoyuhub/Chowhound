@@ -13,7 +13,7 @@ namespace FoodConsole
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Test();
+           new WeatherUpdaeCon().test();
         }
 
         public static void Test()
