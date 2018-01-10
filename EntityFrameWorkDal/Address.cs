@@ -55,5 +55,22 @@ namespace EntityFrameWorkDal
                 return ct.SCitys.Where(d => d.ProvinceId == provinceId).ToList();
             }
         }
-    }
-}
+
+        public int AddCity(List<XCity> list)
+        {
+            using (var ct = new FoodDBContext())
+            {
+                ct.XCitys.AddRange(list);
+                return ct.SaveChanges();
+            }
+        }
+
+        public List<XCity> GetXCity(string CityLevel)
+        {
+            using (var ct = new FoodDBContext())
+            {
+                return ct.XCitys.Where(d => d.CityLevel == CityLevel).ToList();
+
+            }
+        }
+    }}
