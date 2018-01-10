@@ -25,7 +25,7 @@ namespace Common
         //逐日天气预报和昨日天气
         public string GetDaily(string cityName)
         {
-            string url = string.Format("{0}weather/daily.json?key={1}$location={2}&language=zh-Hans&unit=c&start=-1&days=5", s_url, apiKey, cityName);
+            string url = string.Format("{0}daily.json?key={1}&location={2}&language=zh-Hans&unit=c&start=-1&days=5", s_url, apiKey, cityName);
             return GetRespons(url);
         }
 
