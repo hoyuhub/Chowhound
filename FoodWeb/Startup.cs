@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Hangfire;
 
 namespace FoodWeb
 {
@@ -22,11 +23,16 @@ namespace FoodWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddHangfire(x=>x.UseSqlServerStorage("Server=.\MSSQLLocalDB; Database=HangFire; Integrated Security=SSPI;"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseHangfireServer();
+            app.UseHangfireDashboard();
+            RecurringJob.AddOrUpdate(() => Console.WriteLine("Recurring!"), Cron.Hourly);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
