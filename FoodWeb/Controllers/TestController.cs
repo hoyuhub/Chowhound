@@ -15,13 +15,10 @@ namespace FoodWeb.Controllers
          public IActionResult Index()
         {
             Dictionary<string ,string > dic=new Dictionary<string ,string>();
-            dic.Add("123","345")
+            dic.Add("123", "345");
             return View(dic);
         }
 
-        public string test()
-        {
-            
-        }
+       
     }
 }

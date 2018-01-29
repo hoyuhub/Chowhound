@@ -3,8 +3,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="StackExchange.Redis" Version="1.2.6"/>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta3"/>
+    <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta3" />
   </ItemGroup>
   
 </Project>
