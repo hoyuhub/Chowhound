@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Net.Http;
+using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using Models;
+using Common.Redis;
 namespace Common
 {
     public class Weather
@@ -9,7 +12,7 @@ namespace Common
         //心知天气API key
         private static string apiKey = "tvwzmnqbgga053xr";
         //心知天气用户ID
-        private static string userId = "UD7AD56A5E";
+        //private static string userId = "UD7AD56A5E";
         //心知天气接口路径
         private static string s_url = "https://api.seniverse.com/v3/weather/";
         //创建静态客户端对象
@@ -42,6 +45,22 @@ namespace Common
             byte[] bResponse = client.DownloadData(url);
             string strResponse = Encoding.UTF8.GetString(bResponse);
             return strResponse;
+        }
+
+        //更新天气    
+        public void WeatherUpdate(List<XCity> list)
+        {
+            Weather weather = new Weather();
+            // List<XCity> list = new Address().GetXCity("中国地级市");
+            RedisCommon redis = new RedisCommon();
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            list.ForEach(d =>
+            {
+                dic.Add(d.Id, weather.GetDaily(d.Id));
+                Console.WriteLine(d.EName);
+            });
+            redis.WeatherHashSet(dic);
+
         }
     }
 }
