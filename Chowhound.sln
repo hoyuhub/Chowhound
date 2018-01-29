@@ -12,8 +12,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodConsole", "FoodConsole\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodWeb", "FoodWeb\FoodWeb.csproj", "{EB1F811A-305F-4361-90A9-986D400E0360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{EC8210C0-F3BF-4582-B95B-E737BE3300DB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,18 +82,6 @@ Global
 		{EB1F811A-305F-4361-90A9-986D400E0360}.Release|x64.Build.0 = Release|Any CPU
 		{EB1F811A-305F-4361-90A9-986D400E0360}.Release|x86.ActiveCfg = Release|Any CPU
 		{EB1F811A-305F-4361-90A9-986D400E0360}.Release|x86.Build.0 = Release|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Debug|x64.Build.0 = Debug|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Debug|x86.Build.0 = Debug|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Release|x64.ActiveCfg = Release|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Release|x64.Build.0 = Release|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Release|x86.ActiveCfg = Release|Any CPU
-		{EC8210C0-F3BF-4582-B95B-E737BE3300DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

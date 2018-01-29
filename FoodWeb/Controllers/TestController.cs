@@ -12,13 +12,5 @@ namespace FoodWeb.Controllers
 {
     public class TestController:Controller
     {
-         public IActionResult Index()
-        {
-            Dictionary<string ,string > dic=new Dictionary<string ,string>();
-            dic.Add("123", "345");
-            return View(dic);
-        }
-
-       
     }
 }
