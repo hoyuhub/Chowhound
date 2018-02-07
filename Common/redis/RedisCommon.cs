@@ -9,7 +9,7 @@ namespace Common.Redis
     {
         private static ConnectionMultiplexer redis;
 
-        private static ConnectionMultiplexer GetConn()
+        protected static ConnectionMultiplexer GetConn()
         {
             if (redis == null || redis.IsConnected)
             {
@@ -31,10 +31,10 @@ namespace Common.Redis
         //以hash方式存储天气信息，filed为当天日期，value是查到的json数据
         public void WeatherHashSet(Dictionary<string, string> dic)
         {
-            string time=DateTime.Now.ToString("yyyy-MM-dd");
+            string time = DateTime.Now.ToString("yyyy-MM-dd");
             foreach (var str in dic.Keys)
             {
-                GetConn().GetDatabase().HashSet(str,time,dic[str]);
+                GetConn().GetDatabase().HashSet(str, time, dic[str]);
             }
         }
     }
