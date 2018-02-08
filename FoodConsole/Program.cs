@@ -14,6 +14,7 @@ namespace FoodConsole
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            //new WeatherUpdaeCon().WeatherUpdate();
             new WeatherUpdaeCon().CtrlHistoricalWeather();
         }
 

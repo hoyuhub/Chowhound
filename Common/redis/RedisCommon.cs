@@ -34,7 +34,7 @@ namespace Common.Redis
             string time = DateTime.Now.ToString("yyyy-MM-dd");
             foreach (var str in dic.Keys)
             {
-                GetConn().GetDatabase().HashSet(str, time, dic[str]);
+                GetConn().GetDatabase().HashSet("weather:"+str, time, dic[str]);
             }
         }
     }
