@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using Models;
-using Common.Redis;
+using FoodWeb.Common;
 namespace Common
 {
     public class Weather

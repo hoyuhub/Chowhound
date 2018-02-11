@@ -19,8 +19,8 @@ namespace EntityFrameWorkDal
         public virtual DbSet<SDistrict> SDistricts { get; set; }
         public virtual DbSet<SProvince> SProvinces { get; set; }
         public virtual DbSet<XCity> XCitys { get; set; }
-
         public virtual DbSet<HistoricalWeather> HistoricalWeathers { get; set; }
+        public virtual DbSet<SystemLog> SystemLogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

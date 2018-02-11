@@ -43,7 +43,7 @@ namespace FoodWeb
             app.UseHangfireServer();
             app.UseHangfireDashboard();
             //每天定时更新当天天气
-            RecurringJob.AddOrUpdate(() => new Common.Weather().WeatherUpdate(new Address().GetXCity("中国地级市")), Cron.Daily);
+        //    RecurringJob.AddOrUpdate(() => new Common.Weather().WeatherUpdate(new Address().GetXCity("中国地级市")), Cron.Daily);
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

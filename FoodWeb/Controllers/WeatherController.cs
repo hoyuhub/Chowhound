@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using FoodWeb.Models;
 using Common;
 using Models;
-using Common.Redis;
 using EntityFrameWorkDal;
 
 namespace FoodWeb.Controllers
 {
-    public class   WeatherController:Controller
+    public class WeatherController : Controller
     {
-        
-     
+
+
     }
 }
