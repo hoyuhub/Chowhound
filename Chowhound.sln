@@ -1,9 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameWorkDal", "EntityFrameWorkDal\EntityFrameWorkDal.csproj", "{A6FFAF92-E020-47E3-B901-90EDF72526BC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{56E912D6-21A6-4254-A266-7C0FA08BA001}"
@@ -20,18 +18,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Debug|x64.Build.0 = Debug|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Debug|x86.Build.0 = Debug|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Release|x64.ActiveCfg = Release|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Release|x64.Build.0 = Release|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Release|x86.ActiveCfg = Release|Any CPU
-		{1D7F1D28-EF3D-4F00-B8FF-D19FF0F541C2}.Release|x86.Build.0 = Release|Any CPU
 		{A6FFAF92-E020-47E3-B901-90EDF72526BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6FFAF92-E020-47E3-B901-90EDF72526BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6FFAF92-E020-47E3-B901-90EDF72526BC}.Debug|x64.ActiveCfg = Debug|Any CPU

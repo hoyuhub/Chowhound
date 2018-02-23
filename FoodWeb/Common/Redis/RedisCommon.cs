@@ -11,7 +11,7 @@ namespace FoodWeb.Common
         {
             if (redis == null)
             {
-                ConnectionMultiplexer.Connect("localhost");
+                redis=ConnectionMultiplexer.Connect("169.254.244.73:6379");
             }
             return redis;
         }

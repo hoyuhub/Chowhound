@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using Models;
-using FoodWeb.Common;
-namespace Common
+namespace FoodWeb.Common
 {
     public class Weather
     {
@@ -50,13 +49,11 @@ namespace Common
         //更新天气    
         public void WeatherUpdate(List<XCity> list)
         {
-            Weather weather = new Weather();
-            // List<XCity> list = new Address().GetXCity("中国地级市");
             RedisCommon redis = new RedisCommon();
             Dictionary<string, string> dic = new Dictionary<string, string>();
             list.ForEach(d =>
             {
-                dic.Add(d.Id, weather.GetDaily(d.Id));
+                dic.Add(d.Id, GetDaily(d.Id));
                 Console.WriteLine(d.EName);
             });
             redis.WeatherHashSet(dic);

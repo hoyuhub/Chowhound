@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Hangfire;
 using EntityFrameWorkDal;
 using Models;
-using Common;
 
 namespace FoodWeb
 {
@@ -25,7 +24,7 @@ namespace FoodWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHangfire(r => r.UseSqlServerStorage(@"Server=(localdb)\MSSQLLocalDB; Database=HangFire; Trusted_Connection=True;"));
+            services.AddHangfire(r => r.UseSqlServerStorage(@"Data Source=169.254.244.73;Initial Catalog=HangFire;User ID=sa;Password=Server@2017"));
             services.AddMvc();
         }
 
