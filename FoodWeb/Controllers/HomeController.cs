@@ -68,21 +68,17 @@ namespace FoodWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public string test()
+        public string LoadWeather()
         {
-            //try
-            //{
-            //    new Weather().WeatherUpdate(new Address().GetXCity("中国地级市"));
-            //}
-            //catch (Exception e)
-            //{
-            //    throw e;
-            //}
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("testkey", "testvalue");
-            new RedisCommon().WeatherHashSet(dic);
-            return "1";
+            try
+            {
+                new Weather().WeatherUpdate(new Address().GetXCity("中国地级市"));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return string.Empty;
         }
     }
 }

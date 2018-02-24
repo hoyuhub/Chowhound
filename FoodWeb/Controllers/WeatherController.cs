@@ -7,12 +7,24 @@ using Microsoft.AspNetCore.Mvc;
 using FoodWeb.Models;
 using Models;
 using EntityFrameWorkDal;
-
+using FoodWeb.Common;
 namespace FoodWeb.Controllers
 {
     public class WeatherController : Controller
     {
 
-
+        public bool UpdateHistoryWeatherToMssql()
+        {
+            RedisCommon redis = new RedisCommon();
+            try
+            {
+                redis.CtrlHistoricalWeather();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
