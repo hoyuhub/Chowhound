@@ -18,8 +18,12 @@ namespace FoodWeb
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+           WebHost.CreateDefaultBuilder(args)
+            .UseKestrel()
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseIISIntegration()
+            .UseStartup<Startup>()
+            .UseApplicationInsights()
+            .Build();
     }
 }
