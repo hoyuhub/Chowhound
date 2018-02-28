@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using FoodWeb.Models;
 using FoodWeb.Common;
 using EntityFrameWorkDal;
+using Models;
 
 namespace FoodWeb.Controllers
 {
@@ -72,7 +73,8 @@ namespace FoodWeb.Controllers
         {
             try
             {
-                new Weather().WeatherUpdate(new Address().GetXCity("中国地级市"));
+                List<XCity> list = new Address().GetXCity("中国地级市");
+                new Weather().WeatherUpdate(list);
             }
             catch (Exception e)
             {

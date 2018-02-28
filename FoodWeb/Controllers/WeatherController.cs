@@ -22,6 +22,7 @@ namespace FoodWeb.Controllers
             }
             catch (Exception e)
             {
+                Console.Write(e);
                 return false;
             }
             return true;

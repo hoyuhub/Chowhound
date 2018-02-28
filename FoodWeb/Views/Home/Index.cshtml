@@ -2,9 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 <script>
-    function test()
+    function UpdateWe()
     {
         $.get('weather/UpdateHistoryWeatherToMssql', function (v) { alert(v) });
      }
+     function UpLoad(){
+          $.get('home/LoadWeather', function (v) { alert(v) });
+     }
 </script>
-<button type="button" onclick="test()">获取天气数据</button>
+<button type="button" onclick="UpLoad()">获取天气数据</button>
+<button type="button" onclick="UpdateWe()">更新MSSQL</button>
