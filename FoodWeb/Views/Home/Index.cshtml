@@ -7,8 +7,12 @@
         $.get('weather/UpdateHistoryWeatherToMssql', function (v) { alert(v) });
      }
      function UpLoad(){
-          $.get('home/LoadWeather', function (v) { alert(v) });
+          $.get('weather/LoadWeather', function (v) { alert(v) });
+     }
+     function test(){
+          $.get('home/test', function (v) { alert(v) });
      }
 </script>
 <button type="button" onclick="UpLoad()">获取天气数据</button>
 <button type="button" onclick="UpdateWe()">更新MSSQL</button>
+<button type="button" onclick="test()">test</button>

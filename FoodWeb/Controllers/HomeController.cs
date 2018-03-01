@@ -43,7 +43,7 @@ namespace FoodWeb.Controllers
      *                   不见满街漂亮妹，哪个归得程序员？
 */
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
@@ -69,18 +69,9 @@ namespace FoodWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public string LoadWeather()
-        {
-            try
-            {
-                List<XCity> list = new Address().GetXCity("中国地级市");
-                new Weather().WeatherUpdate(list);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            return string.Empty;
-        }
+       public void test()
+       {
+           log.Info("test");
+       }
     }
 }

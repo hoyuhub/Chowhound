@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using Models;
 using Newtonsoft.Json;
 using EntityFrameWorkDal;
+using log4net;
 namespace FoodWeb.Common
 {
     public class RedisCommon
     {
+        private ILog log = LogManager.GetLogger(Startup.repository.Name, typeof(RedisCommon));
         private static ConnectionMultiplexer redis;
 
         public ConnectionMultiplexer GetConn()
@@ -46,6 +48,36 @@ namespace FoodWeb.Common
             GetConn().GetDatabase().HashSet("weather:" + filedName, time, value);
         }
 
+        //记录调用接口时间
+        public void SetXinZhiApiCallTime(DateTime time)
+        {
+            GetConn().GetDatabase().SetAdd("XinZhiApiCallTime", time.ToString());
+        }
+
+        //根据心知天气API文档，一个小时只能调取四百次
+        //做每小时只能调用一次判断，若返回true则可以继续调用，否则不可以调用
+        public bool CheckXinZhiApiCallTime()
+        {
+            if (GetConn().GetDatabase().KeyExists("XinZhiApiCallTime"))
+            {
+
+                string time = GetConn().GetDatabase().StringGet("XinZhiApiCallTime");
+                DateTime dt = Convert.ToDateTime(time);
+                if (dt.AddHours(1).CompareTo(DateTime.Now) > 0)
+                {
+                    return false;
+                }
+                else { return true; }
+            }
+            else { return true; }
+
+        }
+
+        //每次调用接口时都将调用次数累加
+        public void IncrXinZhiApiCallCount(DateTime time)
+        {
+            GetConn().GetDatabase().HashIncrement("SetXinZhiApiCallCount", time.ToString(), 1);
+        }
         //1.首先获取redis中记录的所有天气Key(获得天气历史的对应信息)
         //2.将所有数据都整理成对应信息，保存到MSSQL中
         public void CtrlHistoricalWeather()
@@ -99,7 +131,7 @@ namespace FoodWeb.Common
             }
             catch (Exception e)
             {
-                Console.Write(e);
+               log.ErrorFormat("MSSQL同步Redis发生异常:{0}",e);
             }
         }
     }

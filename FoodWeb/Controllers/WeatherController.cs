@@ -8,9 +8,10 @@ using FoodWeb.Models;
 using Models;
 using EntityFrameWorkDal;
 using FoodWeb.Common;
+using log4net;
 namespace FoodWeb.Controllers
 {
-    public class WeatherController : Controller
+    public class WeatherController : BaseController
     {
 
         public bool UpdateHistoryWeatherToMssql()
@@ -22,10 +23,23 @@ namespace FoodWeb.Controllers
             }
             catch (Exception e)
             {
-                Console.Write(e);
+Console.Write(e);
                 return false;
             }
             return true;
+        }
+        public string LoadWeather()
+        {
+            try
+            {
+                List<XCity> list = new Address().GetXCity("中国地级市");
+                new Weather().WeatherUpdate(list);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return string.Empty;
         }
     }
 }

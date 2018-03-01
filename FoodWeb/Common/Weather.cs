@@ -56,7 +56,7 @@ namespace FoodWeb.Common
                 dic.Add(d.Id, GetDaily(d.Id));
                 redis.WeatherHashSet(d.Id,GetDaily(d.Id));
             });
-
         }
+
     }
 }

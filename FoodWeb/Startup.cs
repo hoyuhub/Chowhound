@@ -33,7 +33,7 @@ namespace FoodWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHangfire(r => r.UseSqlServerStorage(@"Data Source=169.254.244.73;Initial Catalog=HangFire;User ID=sa;Password=Server@2017"));
+          //  services.AddHangfire(r => r.UseSqlServerStorage(@"Data Source=169.254.244.73;Initial Catalog=HangFire;User ID=sa;Password=Server@2017"));
             services.AddMvc();
         }
 
@@ -48,8 +48,8 @@ namespace FoodWeb
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseHangfireServer();
-            app.UseHangfireDashboard();
+          //  app.UseHangfireServer();
+            //app.UseHangfireDashboard();
             //每天定时更新当天天气
             //    RecurringJob.AddOrUpdate(() => new Common.Weather().WeatherUpdate(new Address().GetXCity("中国地级市")), Cron.Daily);
             app.UseStaticFiles();
