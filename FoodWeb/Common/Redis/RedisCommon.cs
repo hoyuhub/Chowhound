@@ -29,7 +29,7 @@ namespace FoodWeb.Common
             return GetConn().GetDatabase().SetMembers("CityName").ToStringArray();
         }
 
-        //以hash方式存储天气信息，filed为当天日期，value是查到的json数据
+        //以hash方式存储天气信息，filed为当天日期，key是当前天，value是查到的json数据
         public void WeatherHashSet(Dictionary<string, string> dic)
         {
             string time = DateTime.Now.ToString("yyyy-MM-dd");
@@ -37,6 +37,13 @@ namespace FoodWeb.Common
             {
                 GetConn().GetDatabase().HashSet("weather:" + str, time, dic[str]);
             }
+        }
+
+        //以hash方式存储天气信息，filed为当天日期，key是当前天，value是查到的json数据
+        public void WeatherHashSet(string filedName, string value)
+        {
+            string time = DateTime.Now.ToString("yyyy-MM-dd");
+            GetConn().GetDatabase().HashSet("weather:" + filedName, time, value);
         }
 
         //1.首先获取redis中记录的所有天气Key(获得天气历史的对应信息)

@@ -9,14 +9,23 @@ using Microsoft.Extensions.DependencyInjection;
 using Hangfire;
 using EntityFrameWorkDal;
 using Models;
+using log4net;
+using System.Configuration;
+using System.IO;
+using log4net.Repository;
+using log4net.Config;
 
 namespace FoodWeb
 {
     public class Startup
     {
+
+        public static  ILoggerRepository repository{get;set;}
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            repository =LogManager.CreateRepository("NETCoreRepository");
+            XmlConfigurator.Configure(repository,new FileInfo("log4net.config"));
         }
 
         public IConfiguration Configuration { get; }
@@ -42,7 +51,7 @@ namespace FoodWeb
             app.UseHangfireServer();
             app.UseHangfireDashboard();
             //每天定时更新当天天气
-        //    RecurringJob.AddOrUpdate(() => new Common.Weather().WeatherUpdate(new Address().GetXCity("中国地级市")), Cron.Daily);
+            //    RecurringJob.AddOrUpdate(() => new Common.Weather().WeatherUpdate(new Address().GetXCity("中国地级市")), Cron.Daily);
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

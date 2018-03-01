@@ -54,8 +54,8 @@ namespace FoodWeb.Common
             list.ForEach(d =>
             {
                 dic.Add(d.Id, GetDaily(d.Id));
+                redis.WeatherHashSet(d.Id,GetDaily(d.Id));
             });
-            redis.WeatherHashSet(dic);
 
         }
     }

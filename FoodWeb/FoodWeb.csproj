@@ -3,21 +3,22 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="HangFire" Version="1.6.17" />
-    <PackageReference Include="Hangfire.SqlServer.RabbitMQ" Version="1.6.0" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="HangFire" Version="1.6.17"/>
+    <PackageReference Include="Hangfire.SqlServer.RabbitMQ" Version="1.6.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5"/>
+    <PackageReference Include="log4net" Version="2.0.8"/>
   </ItemGroup>
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Json\appsettings.json" />
+    <None Include="Json\appsettings.json"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityFrameWorkDal\EntityFrameWorkDal.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\EntityFrameWorkDal\EntityFrameWorkDal.csproj"/>
+    <ProjectReference Include="..\Models\Models.csproj"/>
   </ItemGroup>
 </Project>
