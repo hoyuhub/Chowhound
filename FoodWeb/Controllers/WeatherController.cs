@@ -13,7 +13,10 @@ namespace FoodWeb.Controllers
 {
     public class WeatherController : BaseController
     {
-
+         protected override void GetLog()
+        {
+            log =LogManager.GetLogger(Startup.repository.Name, typeof(WeatherController));
+        }
         public bool UpdateHistoryWeatherToMssql()
         {
             RedisCommon redis = new RedisCommon();
@@ -23,23 +26,24 @@ namespace FoodWeb.Controllers
             }
             catch (Exception e)
             {
-Console.Write(e);
+                log.ErrorFormat("MSSQL同步Redis发生异常:{0}",e);
                 return false;
             }
             return true;
         }
-        public string LoadWeather()
+        public bool LoadWeather()
         {
             try
             {
                 List<XCity> list = new Address().GetXCity("中国地级市");
                 new Weather().WeatherUpdate(list);
+                return true;
             }
             catch (Exception e)
             {
-                throw e;
+                log.ErrorFormat("下载心知天气发生异常:{0}",e);
+                return false;
             }
-            return string.Empty;
         }
     }
 }
