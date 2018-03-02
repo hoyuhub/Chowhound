@@ -3,9 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 using log4net;
 namespace FoodWeb.Controllers
 {
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
-        protected ILog log = LogManager.GetLogger(Startup.repository.Name, typeof(BaseController));
+        protected ILog log;
+        // = LogManager.GetLogger(Startup.repository.Name, typeof(BaseController));
+        public BaseController()
+        {
+            GetLog();
+        }
+       
+        protected virtual void GetLog()
+        {
+            log=LogManager.GetLogger(Startup.repository.Name,GetType());
+        }
+
+       
     }
 
 }

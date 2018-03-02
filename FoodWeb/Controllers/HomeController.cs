@@ -8,6 +8,7 @@ using FoodWeb.Models;
 using FoodWeb.Common;
 using EntityFrameWorkDal;
 using Models;
+using log4net;
 
 namespace FoodWeb.Controllers
 {
@@ -45,6 +46,10 @@ namespace FoodWeb.Controllers
 
     public class HomeController : BaseController
     {
+        protected override void GetLog()
+        {
+            base.GetLog();
+        }
         public IActionResult Index()
         {
             return View();
@@ -69,9 +74,12 @@ namespace FoodWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-       public void test()
-       {
-           log.Info("test");
-       }
+        public void test()
+        {
+         
+          new ReadLog().Read();
+        }
+
+
     }
 }
