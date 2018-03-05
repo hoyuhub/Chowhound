@@ -124,7 +124,7 @@ namespace FoodWeb.Common
                             listHis.Add(his);
                         }
                     }
-
+ 
                 }
                 HistoricalWeathersDal hisDal = new HistoricalWeathersDal();
                 hisDal.Add(listHis);
