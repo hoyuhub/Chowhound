@@ -21,4 +21,7 @@
     <ProjectReference Include="..\EntityFrameWorkDal\EntityFrameWorkDal.csproj"/>
     <ProjectReference Include="..\Models\Models.csproj"/>
   </ItemGroup>
+   <PropertyGroup>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
 </Project>
