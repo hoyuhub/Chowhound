@@ -18,7 +18,7 @@
     <None Include="Json\appsettings.json"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityFrameWorkDal\EntityFrameWorkDal.csproj"/>
+    <ProjectReference Include="..\FoodDal\FoodDal.csproj"/>
     <ProjectReference Include="..\Models\Models.csproj"/>
   </ItemGroup>
    <PropertyGroup>

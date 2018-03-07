@@ -3,7 +3,7 @@ using StackExchange.Redis;
 using System.Collections.Generic;
 using Models;
 using Newtonsoft.Json;
-using EntityFrameWorkDal;
+using FoodDal;
 using log4net;
 namespace FoodWeb.Common
 {

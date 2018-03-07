@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Models;
-using EntityFrameWorkDal;
+using FoodDal;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace EntityFrameWorkDal
+namespace FoodDal
 {
     public class Address
     {

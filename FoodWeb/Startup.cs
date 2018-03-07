@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Hangfire;
-using EntityFrameWorkDal;
+using FoodDal;
 using Models;
 using log4net;
 using System.Configuration;

@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using Models;
+using log4net;
 namespace FoodWeb.Common
 {
     public class Weather
     {
+        private ILog log = LogManager.GetLogger(Startup.repository.Name, typeof(RedisCommon));
+
         //心知天气API key
         private static string apiKey = "tvwzmnqbgga053xr";
         //心知天气用户ID
@@ -53,8 +56,9 @@ namespace FoodWeb.Common
             Dictionary<string, string> dic = new Dictionary<string, string>();
             list.ForEach(d =>
             {
-                dic.Add(d.Id, GetDaily(d.Id));
-                redis.WeatherHashSet(d.Id,GetDaily(d.Id));
+                string result = GetDaily(d.Id);
+                redis.WeatherHashSet(d.Id, result);
+                log.InfoFormat("向redis中写入:", result);
             });
         }
 

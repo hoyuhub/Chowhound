@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 using System.IO;
 
-namespace EntityFrameWorkDal
+namespace FoodDal
 {
     public class Connections
     {

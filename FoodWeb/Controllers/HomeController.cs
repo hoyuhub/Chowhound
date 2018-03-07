@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FoodWeb.Models;
 using FoodWeb.Common;
-using EntityFrameWorkDal;
+using FoodDal;
 using Models;
 using log4net;
 

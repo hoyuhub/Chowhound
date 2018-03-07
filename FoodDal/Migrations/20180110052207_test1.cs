@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace EntityFrameWorkDal.Migrations
+namespace FoodDal.Migrations
 {
     public partial class test1 : Migration
     {
