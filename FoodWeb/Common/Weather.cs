@@ -58,7 +58,7 @@ namespace FoodWeb.Common
             {
                 string result = GetDaily(d.Id);
                 redis.WeatherHashSet(d.Id, result);
-                log.InfoFormat("向redis中写入:", result);
+                log.InfoFormat("向redis中写入:{0}", result);
             });
         }
 
