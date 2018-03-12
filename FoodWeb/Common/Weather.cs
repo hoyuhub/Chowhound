@@ -52,14 +52,39 @@ namespace FoodWeb.Common
         //更新天气    
         public void WeatherUpdate(List<XCity> list)
         {
+
+            int count = 0;
             RedisCommon redis = new RedisCommon();
             Dictionary<string, string> dic = new Dictionary<string, string>();
-            list.ForEach(d =>
+            bool terminationRequest = false;
+            do
             {
-                string result = GetDaily(d.Id);
-                redis.WeatherHashSet(d.Id, result);
-                log.InfoFormat("向redis中写入:{0}", result);
-            });
+                try
+                {
+
+                    list.ForEach(d =>
+                    {
+                        string result = GetDaily(d.Id);
+                        redis.WeatherHashSet(d.Id, result);
+                        log.InfoFormat("向redis中写入:{0}", result);
+                    });
+                }
+                catch (WebException e)
+                {
+                    count++;
+                    log.ErrorFormat("报警次数加一：{0}下载天气信息发生异常：{1}", count, e);
+                    if (count == 3)
+                    {
+                        log.Error("报警次数已经累计三次，将终止所有请求");
+                        terminationRequest = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    log.ErrorFormat("下载天气信息发生异常,终止所有请求,{0}",e);
+                    terminationRequest = true;
+                }
+            } while (list.Count > 0 && terminationRequest == false);
         }
 
     }

@@ -35,8 +35,10 @@ namespace FoodWeb.Controllers
         {
             try
             {
+                log.Info("开始更新天气");
                 List<XCity> list = new Address().GetXCity("中国地级市");
                 new Weather().WeatherUpdate(list);
+                log.Info("天气更新完成");
                 return true;
             }
             catch (Exception e)
