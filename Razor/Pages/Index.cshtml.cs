@@ -13,5 +13,10 @@ namespace Razor.Pages
         {
 
         }
+
+        public string test()
+        {
+            return "";
+        }
     }
 }
