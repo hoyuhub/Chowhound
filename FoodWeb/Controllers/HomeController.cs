@@ -76,8 +76,7 @@ namespace FoodWeb.Controllers
 
         public void test()
         {
-         
-          new ReadLog().Read();
+            log.Info("这是一个级别测试");
         }
 
 
